@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="index.css" />
+    <!-- <script src="getS3ImageUrls.js"></script> -->
+    <title>yearpage</title>
+    <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1043.0.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/aws-sdk@2/dist/aws-sdk.min.js"></script>
+
+    <script>
+      // Directly use AWS SDK's global AWS variable
+      AWS.config.update({
+        region: "us-west-2", // Change this to your bucket's region
+        credentials: new AWS.Credentials("AKIAZI2LDFFPWT4L5BLX", "fwBiwNQwRniL8YLAvm/wbsiAxfAHgVoaELVitoTC"),
+      });
+
+      const s3 = new AWS.S3({
+        region: "us-west-2", // Change this to your bucket's region
+        credentials: new AWS.Credentials("AKIAZI2LDFFPWT4L5BLX", "fwBiwNQwRniL8YLAvm/wbsiAxfAHgVoaELVitoTC"),
+      });
+
+      const bucketName = "direct-upload-s3-bucket-thing-nancy"; 
+        // const params = { Bucket: "direct-upload-s3-bucket-thing-nancy"};
+        // console.log(await s3.listObjectsV2(params))
+        function getS3ImageUrls(bucketName) {
+        return new Promise((resolve, reject) => {
+          const params = { Bucket: bucketName };
+
+          s3.listObjectsV2(params, (err, data) => {
+            if (err) {
+              reject(err);
+            } else {
+              const imageUrls = data.Contents.map(
+                (obj) => `https://${bucketName}.s3.amazonaws.com/${obj.Key}`
+              );
+              resolve(imageUrls);
+            }
+          });
+        });
+      }
+
+  getS3ImageUrls(bucketName)
+  .then((imageUrls) => {
+    // Print or use the list of image URLs
+    imageUrls.forEach((url) => {
+      // Create a new image element
+      var img = document.createElement('img');
+
+      // Set the image source (replace 'image_url.jpg' with the actual image URL)
+      img.src = url;
+
+      img.width = 100;
+      img.height = 100;
+
+      // Append the image to the body or another HTML element (replace 'body' with the desired container)
+      document.body.appendChild(img);
+    });
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
+
+      async function uploadFile(file) {
+        if (!file) {
+          console.error("no file is selected for upload.");
+          return;
+        }
+
+        const uploadParams = {
+          Bucket: "direct-upload-s3-bucket-thing-nancy", // Replace with your bucket name
+          Key: file.name, // Use the filename as the key in S3
+          Body: file,
+          ACL: "public-read", // This is optional; only use if you want the file to be publicly readable
+        };
+
+        s3.upload(uploadParams, function (err, data) {
+          if (err) {
+            console.error("Error", err);
+            alert("Error: " + err.message);
+          } else {
+            console.log("upload Success", data.Location);
+            alert("upload successful!");  //File URL: " + data.Location);
+
+            // Create a new image element
+            var img = document.createElement('img');
+
+            // Set the image source (replace 'image_url.jpg' with the actual image URL)
+            img.src = data.Location;
+
+            img.width = 100;
+            img.height = 100;
+
+            // Append the image to the body or another HTML element (replace 'body' with the desired container)
+            document.body.appendChild(img);
+          }
+        });
+      }
+
+
+    </script>
+
+    <!-- Adjust the src attribute based on your JavaScript file's location -->
+  </head>
+  <body>
+    <h2>year page</h2>
+
+    <input type="file" id="fileInput" />
+    <button onclick="upload()">upload</button>
+
+    <script>
+      function upload() {
+        // Ensure the file is selected
+        const file = document.getElementById("fileInput").files[0];
+        if (!file) {
+          alert("Please select a file to upload.");
+          return;
+        }
+        console.log("Uploading file");
+
+        // Call the upload function defined in your JavaScript file
+        uploadFile(file); // Make sure this function is exposed to be callable from here
+        console.log("Called upload file");
+      }
+      
+    </script>
+
+    
+  </body>
+</html>
