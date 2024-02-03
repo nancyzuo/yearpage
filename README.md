@@ -1,6 +1,6 @@
 # yearpage
 
-visit https://yearpage.lol/ to try it! 
+visit https://yearpage.lol/ to upload to the yearbook!
 
 ## Introducing Yearpage.lol – your modern digital yearbook revolutionizing the way we capture memories!
 
