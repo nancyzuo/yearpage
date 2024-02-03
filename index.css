@@ -3,6 +3,13 @@
 
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -13,4 +20,22 @@ form {
 form > * {
   margin: 5px 0;
   box-sizing: border-box;
+}
+
+body {
+  padding-top: 20px;
+}
+
+/* Add margin to the top image */
+img {
+  /* margin-bottom: 15px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 15px; */
+  margin: 15px;
+}
+
+/* Style the file input and button */
+input[type="file"], button {
+  margin-top: 10px;
 }
