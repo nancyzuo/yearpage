@@ -3,6 +3,10 @@
 
 }
 
+#title{
+  filter: grayscale(0%) !important;
+}
+
 .center {
   display: block;
   margin-left: auto;
@@ -36,8 +40,14 @@ img {
   width: 150px;
   height: 150px;
   object-fit: cover;
-
+  filter: grayscale(90%);
 }
+
+img:hover {
+  filter: grayscale(0%);
+  transform: rotate(3deg);
+}
+
 
 /* Style the file input and button */
 input[type="file"], button {
