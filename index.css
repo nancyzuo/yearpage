@@ -14,3 +14,21 @@ form > * {
   margin: 5px 0;
   box-sizing: border-box;
 }
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffd700; /* Yellow color */
+  color: #000000; /* White text */
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #ffeb3b; /* Lighter yellow on hover */
+}

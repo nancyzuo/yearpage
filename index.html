@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="images/yearbookfavicon.png" type="image/png">
     <!-- <script src="getS3ImageUrls.js"></script> -->
-    <title>yearpage</title>
+    <title>・ﾟ⋆*  year page  ⋆*・ﾟ</title>
     <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1043.0.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/aws-sdk@2/dist/aws-sdk.min.js"></script>
 
@@ -53,8 +54,8 @@
       // Set the image source (replace 'image_url.jpg' with the actual image URL)
       img.src = url;
 
-      img.width = 100;
-      img.height = 100;
+      img.width = window.innerWidth/5;
+      img.height = window.innerHeight/3;
 
       // Append the image to the body or another HTML element (replace 'body' with the desired container)
       document.body.appendChild(img);
@@ -107,7 +108,7 @@
     <!-- Adjust the src attribute based on your JavaScript file's location -->
   </head>
   <body>
-    <h2>year page</h2>
+    <img src="images/yearpage_logo.png" width="20%" height="200%">
 
     <input type="file" id="fileInput" />
     <button onclick="upload()">upload</button>
