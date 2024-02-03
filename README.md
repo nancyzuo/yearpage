@@ -1,5 +1,7 @@
 # yearpage
 
+visit https://yearpage.lol/ to try it! 
+
 ## Introducing Yearpage.lol – your modern digital yearbook revolutionizing the way we capture memories!
 
 CMU's century-old yearbook tradition came to an end last year, leaving a void in commemorating each academic year. Enter Yearpage.lol, a vibrant webpage designed to be your go-to digital yearbook. 
