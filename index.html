@@ -173,7 +173,25 @@
       }
       
     </script>
+    <script>
+      window.addEventListener('scroll', function() {
+        // Calculate the scroll position
+        var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+  
+        // Calculate the height of the content
+        var contentHeight = document.body.clientHeight;
+  
+        // Show or hide the footer based on scroll position
+        if (scrollPosition + window.innerHeight >= contentHeight) {
+          document.querySelector('footer').style.display = 'block';
+        } else {
+          document.querySelector('footer').style.display = 'none';
+        }
+      });
+    </script>
 
-    
+    <footer>
+      <p>made with 😭 by <a href="https://nzuo.me" target="_blank">nancy</a>, <a href="https://jackyhuang.xyz/" target="_blank">jacky</a>, and sanjana</p>
+    </footer>
   </body>
 </html>

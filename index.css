@@ -2,6 +2,14 @@
   font-family: "Helvetica";
 }
 
+@media only screen and (max-width: 600px) {
+  #title {
+    width: 100%; /* You can adjust this value based on your design */
+    height: auto;
+  }
+
+}
+
 #title {
   filter: grayscale(0%) !important;
   width: 30%;
@@ -55,4 +63,15 @@ img:hover {
 /* Style the file input and button */
 input[type="file"], button {
   margin-top: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: center;
+  display: none;
+  font-size: 8px;
 }
