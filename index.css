@@ -1,10 +1,12 @@
 * {
   font-family: "Helvetica";
-
 }
 
-#title{
+#title {
   filter: grayscale(0%) !important;
+  width: 30%;
+  height: 30%;
+  object-fit: cover;
 }
 
 .center {
@@ -41,6 +43,7 @@ img {
   height: 150px;
   object-fit: cover;
   filter: grayscale(90%);
+  /* border: 2px solid rgb(38, 85, 175); */
 }
 
 img:hover {

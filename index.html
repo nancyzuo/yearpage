@@ -11,8 +11,40 @@
     <title>・ﾟ⋆*  year page  ⋆*・ﾟ</title>
     <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1043.0.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/aws-sdk@2/dist/aws-sdk.min.js"></script>
+    <!-- <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script> -->
 
+  </head>
+    <script>
 
+//         window.onload = function () {
+//          
+//          const image_classifier = ml5.imageClassifier("MobileNet", modelLoaded);
+//          const triggerClassify = document.getElementById("triggerClassify");
+//          //const show_image = document.getElementById("show_image");
+//          const show_image = document.getElementById("show_image");
+//          
+//           
+//          
+//          //show_image.src = "https://media.istockphoto.com/id/1318666271/photo/yorkshire-terrier-dog-on-white-background.jpg?s=612x612&w=0&k=20&c=p555BhYyNBk5YM2m3AK5ssSeArea9y1VqJUEioD11GM=" ;
+//          function modelLoaded() {
+//             console.log("Model is loaded! Now, test it by uploading the image.");
+//          }
+//         
+
+//         triggerClassify.onclick = function (e) {
+//             image_classifier.predict(show_image, function (err, outputs) {
+//                if (err) {
+//                   console.error(err);
+//                } else {
+//                   console.log(outputs[0].label);
+//                   let res = document.getElementById('result');
+//                   res.innerHTML = outputs[0].label;
+//                 }
+//             });
+//          };
+//         }
+      
+//           </script>
 
     <script>
       // Directly use AWS SDK's global AWS variable
@@ -53,14 +85,21 @@
       // Create a new image element
       var img = document.createElement('img');
 
+      // const currentDate = new Date();
+      // const formattedDateTime = currentDate.toLocaleDateString();
+
       // Set the image source (replace 'image_url.jpg' with the actual image URL)
       img.src = url;
 
       img.width = 150;
       img.height = 150;
+      // img.addEventListener("click", function () {show_image.src=img.src;})
 
+      // p = document.createElement("p");
+      // p.innerHTML = formattedDateTime;
       // Append the image to the body or another HTML element (replace 'body' with the desired container)
       document.body.appendChild(img);
+      // document.body.appendChild(p)
     });
   })
   .catch((error) => {
@@ -108,9 +147,12 @@
     </script>
 
     <!-- Adjust the src attribute based on your JavaScript file's location -->
-  </head>
+
   <body>
-    <img src="images/yearpage_logo.png" width="100%" height="100%" id="enter" class="center">
+    <!-- <img src = "" id = "show_image" crossorigin = "anonymous">
+    <button class = "button" id = "triggerClassify"> Classify the image </button> -->
+
+    <img src="images/yearpage_logo.png" width="100%" height="100%" id="title" class="center">
 
     <input type="file" id="fileInput" class="center"/>
     <button onclick="upload()" class="center">upload</button>
